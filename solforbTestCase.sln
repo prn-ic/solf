@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solfordTestCase.Database", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solfordTestCase.Domain", "solfordTestCase.Domain\solfordTestCase.Domain.csproj", "{977CB205-6E3C-4438-9934-AB706E25B673}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solfordTestCase.Exeptions", "solfordTestCase.Exeptions\solfordTestCase.Exeptions.csproj", "{D2E760AF-D419-4A4A-80C0-A768E9DF22B0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
