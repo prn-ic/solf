@@ -3,7 +3,6 @@
   <ItemGroup>
     <ProjectReference Include="..\solfordTestCase.Database\solfordTestCase.Database.csproj" />
     <ProjectReference Include="..\solfordTestCase.Domain\solfordTestCase.Domain.csproj" />
-    <ProjectReference Include="..\solfordTestCase.Exeptions\solfordTestCase.Exeptions.csproj" />
   </ItemGroup>
 
   <ItemGroup>
