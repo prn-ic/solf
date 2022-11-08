@@ -4,7 +4,7 @@ _Репозиторий содержит в себе:_
 - /clientHtmlApp: Клиентское приложение на HTML, Bootstrap5, JS Native.
 - /Database: Библиотека классов, которая работает с базой данных.
 - /Domain: Доменная область для работы с базой данных.
-- /API: (Asp .NET Core 6 WebApi) Интерфейс для работы с базой данных в стиле REST
+- /API: (Asp .NET Core 6 WebApi) Интерфейс для работы с базой данных в стиле REST <br/>
 _Используемые пакеты и библиотеки:_
 - Microsoft.EntityFrameworkCore
 - Swashbuckle.AspNetCore.SwaggerGen
