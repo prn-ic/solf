@@ -8,8 +8,9 @@ namespace solfordTestCase.Domain.Repository
         Task<OrderItemDto> CreateOrderItem(OrderItem orderItem);
         Task<IEnumerable<OrderItemDto>> GetOrderItems();
         Task<OrderItemDto> GetOrderItem(int id);
-        Task<OrderItemDto> UpdateOrderItemName(int id, string name);
-        Task<OrderItemDto> UpdateOrderItemUnit(int id, string unitName);
-        Task<bool> DeleteOrderItem(int id);
+        Task<OrderItemDto> UpdateOrderItem(int id, OrderItem orderItem);
+        Task<ResultDto> DeleteOrderItem(int id);
+        Task<IEnumerable<OrderItemDto>> FilterByName(string orderItemName);
+        Task<IEnumerable<OrderItemDto>> FilterByUnit(string orderItemUnit);
     }
 }

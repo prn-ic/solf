@@ -28,23 +28,28 @@ namespace solfordTestCase.API.Controllers
         {
             return await _orderItemRepository.GetOrderItems();
         }
+        [HttpGet("filterName/{name}")]
+        public async Task<IEnumerable<OrderItemDto>> GetOrderItemsByName(string name)
+        {
+            return await _orderItemRepository.FilterByName(name);
+        }
+        [HttpGet("filterUnit/{unit}")]
+        public async Task<IEnumerable<OrderItemDto>> GetOrderItemsByUnit(string unit)
+        {
+            return await _orderItemRepository.FilterByUnit(unit);
+        }
         [HttpGet("{id}")]
         public async Task<OrderItemDto> GetOrderItem(int id)
         {
             return await _orderItemRepository.GetOrderItem(id);
         }
-        [HttpPut("{id}+{name}")]
-        public async Task<OrderItemDto> UpdateOrderItemName(int id, string name)
+        [HttpPut("{id}")]
+        public async Task<OrderItemDto> UpdateOrderItem(int id, OrderItem orderItem)
         {
-            return await _orderItemRepository.UpdateOrderItemName(id, name);
-        }
-        [HttpPut("{id}+{unit}")]
-        public async Task<OrderItemDto> UpdateOrderItemUnit(int id, string unitName)
-        {
-            return await _orderItemRepository.UpdateOrderItemUnit(id, unitName);
+            return await _orderItemRepository.UpdateOrderItem(id, orderItem);
         }
         [HttpDelete("{id}")]
-        public async Task<bool> DeletOrderItem(int id)
+        public async Task<ResultDto> DeletOrderItem(int id)
         {
             return await _orderItemRepository.DeleteOrderItem(id);
         }

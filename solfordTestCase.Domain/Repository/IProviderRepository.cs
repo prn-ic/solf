@@ -8,6 +8,7 @@ namespace solfordTestCase.Domain.Repository
         Task<ProviderDto> CreateProvider(Provider provider);
         Task<IEnumerable<ProviderDto>> GetProviders();
         Task<ProviderDto> GetProvider(int id);
-        Task<bool> DeleteProvider(int id);
+        Task<ResultDto> DeleteProvider(int id);
+        Task<IEnumerable<ProviderDto>> FilterByName(string name);
     }
 }

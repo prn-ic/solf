@@ -10,3 +10,15 @@
 /home/zmqp/solforbTestCase/solfordTestCase.Domain/obj/Debug/net6.0/solfordTestCase.Domain.dll
 /home/zmqp/solforbTestCase/solfordTestCase.Domain/obj/Debug/net6.0/ref/solfordTestCase.Domain.dll
 /home/zmqp/solforbTestCase/solfordTestCase.Domain/obj/Debug/net6.0/solfordTestCase.Domain.pdb
+C:\Github\solf\solfordTestCase.Domain\bin\Debug\net6.0\solfordTestCase.Domain.deps.json
+C:\Github\solf\solfordTestCase.Domain\bin\Debug\net6.0\solfordTestCase.Domain.dll
+C:\Github\solf\solfordTestCase.Domain\bin\Debug\net6.0\solfordTestCase.Domain.pdb
+C:\Github\solf\solfordTestCase.Domain\obj\Debug\net6.0\solfordTestCase.Domain.csproj.AssemblyReference.cache
+C:\Github\solf\solfordTestCase.Domain\obj\Debug\net6.0\solfordTestCase.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Github\solf\solfordTestCase.Domain\obj\Debug\net6.0\solfordTestCase.Domain.AssemblyInfoInputs.cache
+C:\Github\solf\solfordTestCase.Domain\obj\Debug\net6.0\solfordTestCase.Domain.AssemblyInfo.cs
+C:\Github\solf\solfordTestCase.Domain\obj\Debug\net6.0\solfordTestCase.Domain.csproj.CoreCompileInputs.cache
+C:\Github\solf\solfordTestCase.Domain\obj\Debug\net6.0\solfordTestCase.Domain.dll
+C:\Github\solf\solfordTestCase.Domain\obj\Debug\net6.0\refint\solfordTestCase.Domain.dll
+C:\Github\solf\solfordTestCase.Domain\obj\Debug\net6.0\solfordTestCase.Domain.pdb
+C:\Github\solf\solfordTestCase.Domain\obj\Debug\net6.0\ref\solfordTestCase.Domain.dll

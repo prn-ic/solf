@@ -33,8 +33,13 @@ namespace solfordTestCase.API.Controllers
         {
             return await _providerRepository.GetProvider(id);
         }
+        [HttpGet("filterName/{name}")]
+        public async Task<IEnumerable<ProviderDto>> GetProvidersByName(string name)
+        {
+            return await _providerRepository.FilterByName(name);
+        }
         [HttpDelete("{id}")]
-        public async Task<bool> DeleteProvider(int id)
+        public async Task<ResultDto> DeleteProvider(int id)
         {
             return await _providerRepository.DeleteProvider(id);
         }

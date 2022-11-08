@@ -5,23 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" rel="stylesheet">
     <script src="js/script.js" defer></script>
+    <script src="js/pull.js" defer></script>
+    <script src="js/get.js" defer></script>
+    <script src="js/delete.js" defer></script>
+    <script src="js/filter.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
     <title>Главная страница</title>
   </head>
-  <body onload="pullOrders();">
+  <body onload="async function Load() { await pullOrders(await getOrders())}; Load(); pullNameFilter();">
     <div class="container-xxl" style="margin-top:40px;">
         <div class="row justify-content-center">
-            <div class="col-4">
+            <div class="col-2">
                 <form action="create.html">
-                <button type="submit" class="btn btn-dark"> + Add order</button>
+                <button type="submit" class="btn btn-success"> + Add order</button>
             </form>
             </div>
-            <div class="col-4">
-                <input type="date" class="form-control">
+            <div class="col-2">
+                <input type="date" class="form-control" id="startDateFilter">
             </div>
-            <div class="col-4">
-                <button type="button" class="btn btn-dark"> Применить </button>
+            <div class="col-2">
+		<input type="date" class="form-control" id="endDateFilter">
+            </div>
+            <div class="col-2">
+                <select class="form-select" id="filterBy" name="filterBy" aria-label="Default select example" 
+                onchange="changeFilterParam();">
+		    <option value="1" name="filterByName">Фильтр по имени</option>	
+		    <option value="2" name="filterByNumber">Фильтр по номеру</option>
+		    <option value="3" name="filterByDate">Фильтр по дате</option>
+		    <option value="4" name="filterByProvider">Фильтр по провайдеру</option>
+		    <option value="5" name="filterByUnit">Фильтр по модели</option>
+                </select>
+            </div>
+	     <div class="col-2">
+               <select class="form-select" size="3" aria-label="size 3 select" id="filterByParam">
+  		<option selected value="default">Все</option>
+	      </select>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-primary" onclick="filterButton();"> Применить </button>
             </div>
             <h2 style="margin-top:20px;">Список заказов</h2>
             <table class="table table-borderless" id="list-orders" style="margin-top:20px;">
@@ -57,5 +79,26 @@
             </div>
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-  </body>
+    <script>
+    function getDay(){
+    let date = new Date();
+    var month = (date.getUTCMonth() + 1);               
+    var day = date.getUTCDate();
+    if (month < 10) 
+        month = "0" + month;
+    if (day < 10) 
+        day = "0" + day;
+    let prevDate = date.getUTCFullYear() + '-' + (month - 1) + '-' +
+                day;
+
+    let currentDate = date.getUTCFullYear() + '-' + month + '-' +
+                day;
+    document.getElementById('startDateFilter').value = prevDate;
+    document.getElementById('endDateFilter').value = currentDate;
+    }
+
+   getDay();
+
+    </script>  
+</body>
 </html>

@@ -11,7 +11,8 @@ builder.Services.AddCors();
 
 builder.Services.AddDbContext<AppDbContext>(
     options => options.UseSqlServer(
-        builder.Configuration.GetConnectionString("MsSqlConnection")
+        builder.Configuration.GetConnectionString("MsSqlConnection"),
+        b => b.MigrationsAssembly("solfordTestCase.API")
         )
 );
 

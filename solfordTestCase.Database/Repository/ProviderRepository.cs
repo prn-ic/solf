@@ -11,7 +11,10 @@ namespace solfordTestCase.Database.Repository
     {
         private AppDbContext _context;
         private MapperConfiguration mapperConfiguration = new MapperConfiguration(configuration =>
-            configuration.CreateMap<Provider, ProviderDto>()
+        {
+            configuration.CreateMap<Result, ResultDto>();
+            configuration.CreateMap<Provider, ProviderDto>();
+        }
         );
         public ProviderRepository(AppDbContext context)
         {
@@ -27,13 +30,27 @@ namespace solfordTestCase.Database.Repository
             return mapper.Map<ProviderDto>(provider);
         }
 
-        public async Task<bool> DeleteProvider(int id)
+        public async Task<ResultDto> DeleteProvider(int id)
         {
-            Provider? provider = await _context.Providers.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+            IMapper? mapper = mapperConfiguration.CreateMapper();
+            Provider? provider = await _context.Providers
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == id);
             _context.Providers.Remove(provider!);
 
             await _context.SaveChangesAsync();
-            return true;
+            return mapper.Map<ResultDto>(new Result { Success = true} );
+        }
+
+        public async Task<IEnumerable<ProviderDto>> FilterByName(string name)
+        {
+            IMapper? mapper = mapperConfiguration.CreateMapper();
+            IEnumerable<Provider>? provider = await _context.Providers
+                .AsNoTracking()
+                .Where(x => x.Name == name)
+                .ToListAsync();
+
+            return mapper.Map<IEnumerable<ProviderDto>>(provider);
         }
 
         public async Task<ProviderDto> GetProvider(int id)

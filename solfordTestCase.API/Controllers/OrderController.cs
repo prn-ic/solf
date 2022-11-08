@@ -33,13 +33,28 @@ namespace solfordTestCase.API.Controllers
         {
             return await _orderRepository.GetOrder(id);
         }
+        [HttpGet("filterNumber/{number}")]
+        public async Task<IEnumerable<OrderDto>> GetOrdersByNumber(string number)
+        {
+            return await _orderRepository.FilterByNumber(number);
+        }
+        [HttpGet("filterDate/{startTime}+{endTime}")]
+        public async Task<IEnumerable<OrderDto>> GetOrdersByDate(DateTime startTime, DateTime endTime)
+        {
+            return await _orderRepository.FilterByDate(startTime, endTime);
+        }
+        [HttpGet("filterProvider/{providerId}")]
+        public async Task<IEnumerable<OrderDto>> GetOrdersByProvider(int id)
+        {
+            return await _orderRepository.FilterByProvider(id);
+        }
         [HttpPut("{id}")]
         public async Task<OrderDto> UpdateOrder([FromRoute] int id, [FromBody] Order order)
         {
             return await _orderRepository.UpdateOrder(id, order);
         }
         [HttpDelete("{id}")]
-        public async Task<bool> DeleteOrder(int id)
+        public async Task<ResultDto> DeleteOrder(int id)
         {
             return await _orderRepository.DeleteOrder(id);
         }

@@ -9,6 +9,9 @@ namespace solfordTestCase.Domain.Repository
         Task<IEnumerable<OrderDto>> GetOrders();
         Task<OrderDto> GetOrder(int id);
         Task<OrderDto> UpdateOrder(int id, Order order);
-        Task<bool> DeleteOrder(int id);
+        Task<ResultDto> DeleteOrder(int id);
+        Task<IEnumerable<OrderDto>> FilterByDate(DateTime startDate, DateTime endDate);
+        Task<IEnumerable<OrderDto>> FilterByNumber(string orderNumber);
+        Task<IEnumerable<OrderDto>> FilterByProvider(int id);
     }
 }

@@ -11,7 +11,10 @@ namespace solfordTestCase.Database.Repository
     {
         private AppDbContext _context;
         private MapperConfiguration mapperConfiguration = new MapperConfiguration(configuration =>
-            configuration.CreateMap<OrderItem, OrderItemDto>() 
+        {
+            configuration.CreateMap<OrderItem, OrderItemDto>();
+            configuration.CreateMap<Result, ResultDto>();
+        }
         );
         public OrderItemRepository(AppDbContext context)
         {
@@ -26,12 +29,35 @@ namespace solfordTestCase.Database.Repository
             return mapper.Map<OrderItemDto>(orderItem);
         }
 
-        public async Task<bool> DeleteOrderItem(int id)
+        public async Task<ResultDto> DeleteOrderItem(int id)
         {
+            IMapper? mapper = mapperConfiguration.CreateMapper();
             OrderItem? orderItem = await _context.OrderItems.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
             _context.OrderItems.Remove(orderItem!);
 
-            return true;
+            return mapper.Map<ResultDto>(new Result { Success = true });
+        }
+
+        public async Task<IEnumerable<OrderItemDto>> FilterByName(string orderItemName)
+        {
+            IMapper? mapper = mapperConfiguration.CreateMapper();
+            IEnumerable<OrderItem> orderItems = await _context.OrderItems
+                .AsNoTracking()
+                .Where(x => x.Name == orderItemName)
+                .ToListAsync();
+
+            return mapper.Map<IEnumerable<OrderItemDto>>(orderItems);
+        }
+
+        public async Task<IEnumerable<OrderItemDto>> FilterByUnit(string orderItemUnit)
+        {
+            IMapper? mapper = mapperConfiguration.CreateMapper();
+            IEnumerable<OrderItem> orderItems = await _context.OrderItems
+                .AsNoTracking()
+                .Where(x => x.Unit == orderItemUnit)
+                .ToListAsync();
+
+            return mapper.Map<IEnumerable<OrderItemDto>>(orderItems);
         }
 
         public async Task<OrderItemDto> GetOrderItem(int id)
@@ -50,11 +76,11 @@ namespace solfordTestCase.Database.Repository
             return mapper.Map<IEnumerable<OrderItemDto>>(orderItems);
         }
 
-        public async Task<OrderItemDto> UpdateOrderItemName(int id, string name)
+        public async Task<OrderItemDto> UpdateOrderItem(int id, OrderItem orderItem)
         {
             IMapper? mapper = mapperConfiguration.CreateMapper();
-            OrderItem? orderItem = await _context.OrderItems.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-            orderItem!.Name = name;
+            OrderItem? item = await _context.OrderItems.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+            orderItem!.Id = id;
             
             _context.OrderItems.Update(orderItem);
             await _context.SaveChangesAsync();
@@ -62,16 +88,5 @@ namespace solfordTestCase.Database.Repository
             return mapper.Map<OrderItemDto>(orderItem);
         }
 
-        public async Task<OrderItemDto> UpdateOrderItemUnit(int id, string unitName)
-        {
-            IMapper? mapper = mapperConfiguration.CreateMapper();
-            OrderItem? orderItem = await _context.OrderItems.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
-            orderItem!.Unit = unitName;
-            
-            _context.OrderItems.Update(orderItem);
-            await _context.SaveChangesAsync();
-
-            return mapper.Map<OrderItemDto>(orderItem);
-        }
     }
 }
