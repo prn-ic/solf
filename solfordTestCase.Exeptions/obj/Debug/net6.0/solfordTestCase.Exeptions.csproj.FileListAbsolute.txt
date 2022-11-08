@@ -1,0 +1,12 @@
+/home/zmqp/solforbTestCase/solfordTestCase.Exeptions/bin/Debug/net6.0/solfordTestCase.Exeptions.deps.json
+/home/zmqp/solforbTestCase/solfordTestCase.Exeptions/bin/Debug/net6.0/solfordTestCase.Exeptions.dll
+/home/zmqp/solforbTestCase/solfordTestCase.Exeptions/bin/Debug/net6.0/ref/solfordTestCase.Exeptions.dll
+/home/zmqp/solforbTestCase/solfordTestCase.Exeptions/bin/Debug/net6.0/solfordTestCase.Exeptions.pdb
+/home/zmqp/solforbTestCase/solfordTestCase.Exeptions/obj/Debug/net6.0/solfordTestCase.Exeptions.csproj.AssemblyReference.cache
+/home/zmqp/solforbTestCase/solfordTestCase.Exeptions/obj/Debug/net6.0/solfordTestCase.Exeptions.GeneratedMSBuildEditorConfig.editorconfig
+/home/zmqp/solforbTestCase/solfordTestCase.Exeptions/obj/Debug/net6.0/solfordTestCase.Exeptions.AssemblyInfoInputs.cache
+/home/zmqp/solforbTestCase/solfordTestCase.Exeptions/obj/Debug/net6.0/solfordTestCase.Exeptions.AssemblyInfo.cs
+/home/zmqp/solforbTestCase/solfordTestCase.Exeptions/obj/Debug/net6.0/solfordTestCase.Exeptions.csproj.CoreCompileInputs.cache
+/home/zmqp/solforbTestCase/solfordTestCase.Exeptions/obj/Debug/net6.0/solfordTestCase.Exeptions.dll
+/home/zmqp/solforbTestCase/solfordTestCase.Exeptions/obj/Debug/net6.0/ref/solfordTestCase.Exeptions.dll
+/home/zmqp/solforbTestCase/solfordTestCase.Exeptions/obj/Debug/net6.0/solfordTestCase.Exeptions.pdb
