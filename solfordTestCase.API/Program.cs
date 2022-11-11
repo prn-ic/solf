@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using solfordTestCase.Database.Repository;
 using solfordTestCase.Database.Services;
 using solfordTestCase.Domain.Repository;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)
@@ -24,6 +25,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDirectoryBrowser();
+
 var app = builder.Build();
 
 
@@ -38,6 +41,17 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseStaticFiles();
+
+app.UseFileServer(new FileServerOptions
+{
+    FileProvider = new PhysicalFileProvider(
+           Path.Combine(builder.Environment.ContentRootPath, @"..\clientHtmlApp")),
+    //RequestPath = "/clientHtmlApp", - откоменть если хочешь вызывать по отдельному пути а не руту
+    EnableDirectoryBrowsing = true //если фалсе то не будет показывать содержание папки когда нету индекс файла
+});
+
 app.UseAuthorization();
 app.UseAuthentication();
 app.MapControllers();
